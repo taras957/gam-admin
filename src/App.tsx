@@ -1,6 +1,6 @@
-import { useState } from 'react'
-import './App.css'
 import { RouterProvider, createRouter } from '@tanstack/react-router'
+import { store } from './store'
+import { Provider } from 'react-redux'
 import { routeTree } from './routeTree.gen'
 // Create a new router instance
 const router = createRouter({ routeTree })
@@ -15,11 +15,9 @@ declare module '@tanstack/react-router' {
 function App() {
 
   return (
-    <>
-           <RouterProvider router={router} />
-
-    </>
-  )
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>)
 }
 
 export default App
