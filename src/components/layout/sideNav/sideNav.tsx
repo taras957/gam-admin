@@ -1,28 +1,29 @@
 import { Link } from '@tanstack/react-router';
 import { supabase } from '../../../features/api/superbase';
 
-const SideNav = () => {
-  const linkList = [
-    {
-      name: 'Profile',
-      href: '/profile',
+const linkList = [
+  {
+    name: 'Profile',
+    href: '/profile',
+  },
+  {
+    name: 'Manage Users',
+    href: '/manage-users',
+  },
+  {
+    name: 'Logout',
+    href: '/logout',
+    onClick: async () => {
+      await supabase.auth.signOut();
+      //dispatch error to store
     },
-    {
-      name: 'Store',
-      href: '/store',
-    },
-    {
-      name: 'Logout',
-      href: '/logout',
-      onClick: async () => {
-        await supabase.auth.signOut();
-        //dispatch error to store
-      },
-    },
-  ];
+  },
+];
+
+export const SideNav = () => {
   return (
     <nav>
-      <ul>
+      <ul className="menu bg-base-300 rounded-box w-56 h-screen py-8">
         {linkList.map((link) => (
           <li key={link.href}>
             <Link to={link.href} {...link}>
@@ -34,5 +35,3 @@ const SideNav = () => {
     </nav>
   );
 };
-
-export default SideNav;
