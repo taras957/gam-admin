@@ -1,5 +1,5 @@
 import { Link } from '@tanstack/react-router';
-import { supabase } from '../../../features/api/superbase';
+import { supabase } from '@features/api/superbase';
 
 const linkList = [
   {

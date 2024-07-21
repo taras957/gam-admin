@@ -1,4 +1,21 @@
 {
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@features/*": [
+        "./src/features/*"
+      ],
+      "@store/*": [
+        "./src/store/*"
+      ],
+      "@routes/*": [
+        "./src/routes/*"
+      ],
+    }
+  },
   "files": [],
   "references": [
     {
